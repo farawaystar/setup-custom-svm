@@ -1,0 +1,28 @@
+name: Process Cargo Changes
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_sha:
+        required: true
+
+jobs:
+  handle-changes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Cargo.toml files
+        run: |
+          curl -H "Authorization: token ${{ secrets.PAT }}" \
+            -L "https://api.github.com/repos/rust-lang/agave/tarball/${{ github.event.inputs.commit_sha }}" \
+            -o agave-snapshot.tar.gz
+          
+          tar -xzf agave-snapshot.tar.gz --wildcards '*/Cargo.toml'
+          mkdir consolidated
+          find . -name Cargo.toml -exec cp --parents {} consolidated \;
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: agave-cargo-files
+          path: consolidated/
+          retention-days: 3
