@@ -19,18 +19,18 @@ jobs:
 
           # Track processed commits
           LAST_PROCESSED=$(curl -s -H "Authorization: token ${{ secrets.PAT }}" \
-            "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" | \
 
-            | jq -r '.artifacts[0].name' | cut -d'-' -f3)
+            jq -r '.artifacts[0].name // empty' | cut -d'-' -f3)
           # Check for Cargo.toml modifications
           echo "$COMMITS" | jq -r '.[].sha' | while read SHA; do
-            if [[ "$SHA" == "$LAST_PROCESSED" ]]; then
+            if [[ -n "$LAST_PROCESSED" && "$SHA" == "$LAST_PROCESSED" ]]; then
               break
             fi
 
             FILES=$(curl -s -H "Authorization: token ${{ secrets.PAT }}" \
-              "https://api.github.com/repos/farawaystar/solana-core/commits/$SHA" \
-              | jq -r '.files[].filename')
+              "https://api.github.com/repos/farawaystar/solana-core/commits/$SHA" | \
+              jq -r '.files[].filename')
               
             if echo "$FILES" | grep -q 'Cargo.toml'; then
               echo "Detected Cargo.toml change in commit $SHA"
@@ -59,7 +59,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               workflow_id: 'process-cargo-changes.yml',
-              ref: 'main',
+              ref: 'master',
               inputs: {
                 commit_sha: '${{ steps.check-commits.outputs.changed_commit }}'
               }
