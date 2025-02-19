@@ -13,7 +13,7 @@ jobs:
       - name: Download Cargo.toml files
         run: |
           curl -H "Authorization: token ${{ secrets.PAT }}" \
-            -L "https://api.github.com/repos/farawaystar/agave-monitor/tarball/${{ github.event.inputs.commit_sha }}" \
+            -L "https://api.github.com/repos/farawaystar/solana-core/tarball/${{ github.event.inputs.commit_sha }}" \
             -o agave-snapshot.tar.gz
           
           tar -xzf agave-snapshot.tar.gz --wildcards '*/Cargo.toml'

@@ -14,12 +14,12 @@ jobs:
         run: |
           # Get latest commits from agave repo
           COMMITS=$(curl -s -H "Authorization: token ${{ secrets.PAT }}" \
-            "https://api.github.com/repos/farawaystar/agave-monitor/commits?per_page=10")
+            "https://api.github.com/repos/farawaystar/solana-core/commits?per_page=10")
 
           # Check for Cargo.toml modifications
           echo "$COMMITS" | jq -r '.[].sha' | while read SHA; do
             FILES=$(curl -s -H "Authorization: token ${{ secrets.PAT }}" \
-              "https://api.github.com/repos/farawaystar/agave-monitor/commits/$SHA" \
+              "https://api.github.com/repos/farawaystar/solana-core/commits/$SHA" \
               | jq -r '.files[].filename')
               
             if echo "$FILES" | grep -q 'Cargo.toml'; then
