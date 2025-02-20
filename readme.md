@@ -1,11 +1,10 @@
-```markdown
 # Cargo.toml Monitor
 
 A GitHub Actions workflow system to monitor and process changes to Cargo.toml files in external repositories. This example will mature into monitoring Solana agave validator client - as a start.
 
 ## Workflow Architecture
 
-1. Monitoring Workflow (monitor-agave.yml)
+### 1. Monitoring Workflow (monitor-agave.yml)
 
 *Purpose:* Detect Cargo.toml changes in external repositories
 *Trigger Mechanism:* External cron-job.org service initiates this workflow every 5 minutes
@@ -15,7 +14,7 @@ A GitHub Actions workflow system to monitor and process changes to Cargo.toml fi
 - If changes: triggers artifact generation workflow (process-cargo-changes.yml)
 - If no changes: exit
 
-2. Processing Workflow (process-cargo-changes.yml)
+### 2. Processing Workflow (process-cargo-changes.yml)
 *Purpose:* Generate consolidated dependency artifacts
 *Trigger Mechanism:* Triggered by monitor-agave.yml upon identification of changes to Cargo.toml of the repo being monitored.
 - Downloads repository snapshot at specific commit into a timestamped archive.
