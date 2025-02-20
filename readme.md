@@ -64,10 +64,14 @@ Body:
 }
 Schedule: */5 * * * *
 ```
-```
 3. Use test-run to test your changes before enabling the job
 
-### 4. Verification Commands
+
+### 4. Outputs
+Find all workflow runs and their statuses in your repo -> Actions
+
+
+### 5. Verification Commands
 **Check Repository Access:**
 ```
 curl -H "Authorization: token YOUR_PAT" \
