@@ -1,8 +1,6 @@
 name: Agave Cargo.toml Monitor
 
 on:
-  schedule:
-    - cron: '*/5 * * * *'  # Check every 5 minutes
   workflow_dispatch:
 
 jobs:
@@ -19,25 +17,23 @@ jobs:
 
           # Track processed commits
           LAST_PROCESSED=$(curl -s -H "Authorization: token ${{ secrets.PAT }}" \
-            "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" | \
+            "https://api.github.com/repos/${{ github.repository }}/actions/runs?event=workflow_dispatch&status=completed&per_page=1&sort=created&direction=desc" | \
+            jq -r '.workflow_runs[0].inputs.commit_sha // empty')
 
-            jq -r '.artifacts[0].name // empty' | cut -d'-' -f3)
           # Check for Cargo.toml modifications
           echo "$COMMITS" | jq -r '.[].sha' | while read SHA; do
-            if [[ -n "$LAST_PROCESSED" && "$SHA" == "$LAST_PROCESSED" ]]; then
-              break
-            fi
+            [[ "$SHA" == "$LAST_PROCESSED" ]] && break
 
             FILES=$(curl -s -H "Authorization: token ${{ secrets.PAT }}" \
               "https://api.github.com/repos/farawaystar/solana-core/commits/$SHA" | \
               jq -r '.files[].filename')
               
-            if echo "$FILES" | grep -q 'Cargo.toml'; then
-              echo "Detected Cargo.toml change in commit $SHA"
+            grep -q 'Cargo\.toml$' <<< "$FILES" && {
               echo "changed_commit=$SHA" >> $GITHUB_OUTPUT
-              break
-            fi
+              echo "Found in $SHA" >&2
+            }
           done
+
       - name: Error logging
         if: ${{ failure() }}
         run: |
