@@ -1,0 +1,1703 @@
+{
+  "solana-memory-management": {
+    "path": "memory-management",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-client": {
+    "path": "client",
+    "dependencies": {
+      "solana-quic-client": "quic-client",
+      "solana-rpc-client-nonce-utils": "rpc-client-nonce-utils",
+      "solana-tpu-client": "tpu-client",
+      "solana-measure": "measure",
+      "solana-pubsub-client": "pubsub-client",
+      "solana-connection-cache": "connection-cache",
+      "solana-streamer": "streamer",
+      "solana-thin-client": "thin-client",
+      "solana-udp-client": "udp-client",
+      "solana-rpc-client-api": "rpc-client-api",
+      "solana-rpc-client": "rpc-client"
+    },
+    "dev_dependencies": {
+      "solana-net-utils": "net-utils"
+    }
+  },
+  "gen-syscall-list": {
+    "path": "programs/bpf_loader/gen-syscall-list",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-lattice-hash": {
+    "path": "lattice-hash",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-client-test": {
+    "path": "client-test",
+    "dependencies": {
+      "solana-pubsub-client": "pubsub-client",
+      "solana-test-validator": "test-validator",
+      "solana-measure": "measure",
+      "solana-ledger": "ledger",
+      "solana-runtime": "runtime",
+      "solana-transaction-status": "transaction-status",
+      "solana-streamer": "streamer",
+      "solana-merkle-tree": "merkle-tree",
+      "solana-rpc": "rpc",
+      "solana-client": "client",
+      "solana-perf": "perf",
+      "solana-version": "version",
+      "solana-rpc-client-api": "rpc-client-api",
+      "solana-rpc-client": "rpc-client",
+      "solana-rayon-threadlimit": "rayon-threadlimit"
+    },
+    "dev_dependencies": {
+      "solana-runtime": "runtime",
+      "solana-rpc": "rpc"
+    }
+  },
+  "solana-metrics": {
+    "path": "metrics",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-compute-budget": {
+    "path": "compute-budget",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-zk-token-proof-program": {
+    "path": "programs/zk-token-proof",
+    "dependencies": {
+      "solana-log-collector": "log-collector",
+      "solana-program-runtime": "program-runtime",
+      "solana-zk-token-sdk": "zk-token-sdk"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-rpc-test": {
+    "path": "rpc-test",
+    "dependencies": {
+      "solana-pubsub-client": "pubsub-client",
+      "solana-rpc-client-api": "rpc-client-api",
+      "solana-streamer": "streamer",
+      "solana-tpu-client": "tpu-client",
+      "solana-account-decoder": "account-decoder",
+      "solana-rpc-client": "rpc-client",
+      "solana-transaction-status": "transaction-status",
+      "solana-test-validator": "test-validator",
+      "solana-client": "client",
+      "solana-net-utils": "net-utils",
+      "solana-rpc": "rpc"
+    },
+    "dev_dependencies": {
+      "solana-connection-cache": "connection-cache"
+    }
+  },
+  "solana-transaction-status": {
+    "path": "transaction-status",
+    "dependencies": {
+      "solana-transaction-status-client-types": "transaction-status-client-types",
+      "solana-account-decoder": "account-decoder"
+    },
+    "dev_dependencies": {}
+  },
+  "agave-transaction-view": {
+    "path": "transaction-view",
+    "dependencies": {
+      "solana-svm-transaction": "svm-transaction"
+    },
+    "dev_dependencies": {
+      "agave-transaction-view": "."
+    }
+  },
+  "agave-validator": {
+    "path": "validator",
+    "dependencies": {
+      "solana-clap-utils": "clap-utils",
+      "solana-version": "version",
+      "solana-entry": "entry",
+      "solana-rpc": "rpc",
+      "solana-tpu-client": "tpu-client",
+      "solana-program-runtime": "program-runtime",
+      "solana-genesis-utils": "genesis-utils",
+      "solana-unified-scheduler-pool": "unified-scheduler-pool",
+      "solana-poh": "poh",
+      "solana-metrics": "metrics",
+      "solana-cli-output": "cli-output",
+      "solana-perf": "perf",
+      "solana-net-utils": "net-utils",
+      "solana-cli-config": "cli-config",
+      "solana-rayon-threadlimit": "rayon-threadlimit",
+      "solana-rpc-client-api": "rpc-client-api",
+      "solana-storage-bigtable": "storage-bigtable",
+      "solana-streamer": "streamer",
+      "solana-download-utils": "download-utils",
+      "solana-gossip": "gossip",
+      "solana-rpc-client": "rpc-client",
+      "solana-core": "core",
+      "solana-runtime": "runtime",
+      "solana-vote-program": "programs/vote",
+      "solana-accounts-db": "accounts-db",
+      "solana-faucet": "faucet",
+      "solana-ledger": "ledger",
+      "solana-send-transaction-service": "send-transaction-service",
+      "solana-geyser-plugin-manager": "geyser-plugin-manager",
+      "agave-geyser-plugin-interface": "geyser-plugin-interface",
+      "solana-test-validator": "test-validator"
+    },
+    "dev_dependencies": {
+      "solana-account-decoder": "account-decoder",
+      "solana-runtime": "runtime",
+      "solana-inline-spl": "inline-spl"
+    }
+  },
+  "agave-watchtower": {
+    "path": "watchtower",
+    "dependencies": {
+      "solana-cli-config": "cli-config",
+      "solana-rpc-client-api": "rpc-client-api",
+      "solana-rpc-client": "rpc-client",
+      "solana-version": "version",
+      "solana-cli-output": "cli-output",
+      "solana-notifier": "notifier",
+      "solana-metrics": "metrics",
+      "solana-clap-utils": "clap-utils"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-compute-budget-program": {
+    "path": "programs/compute-budget",
+    "dependencies": {
+      "solana-program-runtime": "program-runtime"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-dos": {
+    "path": "dos",
+    "dependencies": {
+      "solana-faucet": "faucet",
+      "solana-connection-cache": "connection-cache",
+      "solana-net-utils": "net-utils",
+      "solana-core": "core",
+      "solana-tpu-client": "tpu-client",
+      "solana-version": "version",
+      "solana-client": "client",
+      "solana-measure": "measure",
+      "solana-bench-tps": "bench-tps",
+      "solana-rpc": "rpc",
+      "solana-quic-client": "quic-client",
+      "solana-gossip": "gossip",
+      "solana-streamer": "streamer",
+      "solana-rpc-client": "rpc-client",
+      "solana-tps-client": "tps-client",
+      "solana-perf": "perf"
+    },
+    "dev_dependencies": {
+      "solana-local-cluster": "local-cluster",
+      "solana-core": "core",
+      "solana-runtime": "runtime"
+    }
+  },
+  "gen-headers": {
+    "path": "platform-tools-sdk/gen-headers",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-vote": {
+    "path": "vote",
+    "dependencies": {
+      "solana-svm-transaction": "svm-transaction"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-config-program": {
+    "path": "programs/config",
+    "dependencies": {
+      "solana-log-collector": "log-collector",
+      "solana-program-runtime": "program-runtime"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-svm": {
+    "path": "svm",
+    "dependencies": {
+      "solana-svm-transaction": "svm-transaction",
+      "solana-log-collector": "log-collector",
+      "solana-bpf-loader-program": "programs/bpf_loader",
+      "solana-compute-budget": "compute-budget",
+      "solana-loader-v4-program": "programs/loader-v4",
+      "solana-timings": "timings",
+      "solana-svm-rent-collector": "svm-rent-collector",
+      "solana-type-overrides": "type-overrides",
+      "solana-measure": "measure",
+      "solana-program-runtime": "program-runtime"
+    },
+    "dev_dependencies": {
+      "solana-svm-conformance": "svm-conformance",
+      "solana-svm": ".",
+      "solana-compute-budget-program": "programs/compute-budget",
+      "solana-system-program": "programs/system",
+      "solana-compute-budget": "compute-budget",
+      "solana-compute-budget-instruction": "compute-budget-instruction"
+    }
+  },
+  "solana-storage-bigtable": {
+    "path": "storage-bigtable",
+    "dependencies": {
+      "solana-storage-proto": "storage-proto",
+      "solana-metrics": "metrics",
+      "solana-transaction-status": "transaction-status"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-cargo-test-sbf": {
+    "path": "platform-tools-sdk/cargo-test-sbf",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-genesis-utils": {
+    "path": "genesis-utils",
+    "dependencies": {
+      "solana-download-utils": "download-utils",
+      "solana-accounts-db": "accounts-db",
+      "solana-rpc-client": "rpc-client"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-curve25519": {
+    "path": "curves/curve25519",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-ledger": {
+    "path": "ledger",
+    "dependencies": {
+      "solana-transaction-status": "transaction-status",
+      "solana-stake-program": "programs/stake",
+      "solana-vote-program": "programs/vote",
+      "solana-bpf-loader-program": "programs/bpf_loader",
+      "solana-metrics": "metrics",
+      "solana-storage-proto": "storage-proto",
+      "solana-svm-transaction": "svm-transaction",
+      "solana-account-decoder": "account-decoder",
+      "solana-vote": "vote",
+      "solana-runtime": "runtime",
+      "solana-accounts-db": "accounts-db",
+      "solana-svm": "svm",
+      "solana-storage-bigtable": "storage-bigtable",
+      "solana-entry": "entry",
+      "solana-perf": "perf",
+      "solana-cost-model": "cost-model",
+      "solana-rayon-threadlimit": "rayon-threadlimit",
+      "solana-timings": "timings",
+      "solana-measure": "measure",
+      "solana-program-runtime": "program-runtime",
+      "solana-runtime-transaction": "runtime-transaction"
+    },
+    "dev_dependencies": {
+      "solana-runtime": "runtime",
+      "solana-account-decoder": "account-decoder"
+    }
+  },
+  "solana-runtime-transaction": {
+    "path": "runtime-transaction",
+    "dependencies": {
+      "solana-svm-transaction": "svm-transaction",
+      "solana-compute-budget": "compute-budget",
+      "solana-compute-budget-instruction": "compute-budget-instruction",
+      "agave-transaction-view": "transaction-view"
+    },
+    "dev_dependencies": {
+      "solana-compute-budget-instruction": "compute-budget-instruction"
+    }
+  },
+  "solana-banks-server": {
+    "path": "banks-server",
+    "dependencies": {
+      "solana-runtime-transaction": "runtime-transaction",
+      "solana-banks-interface": "banks-interface",
+      "solana-svm": "svm",
+      "solana-send-transaction-service": "send-transaction-service",
+      "solana-client": "client",
+      "solana-runtime": "runtime"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-builtins": {
+    "path": "builtins",
+    "dependencies": {
+      "solana-system-program": "programs/system",
+      "solana-compute-budget-program": "programs/compute-budget",
+      "solana-program-runtime": "program-runtime",
+      "solana-address-lookup-table-program": "programs/address-lookup-table",
+      "solana-vote-program": "programs/vote",
+      "solana-zk-elgamal-proof-program": "programs/zk-elgamal-proof",
+      "solana-bpf-loader-program": "programs/bpf_loader",
+      "solana-loader-v4-program": "programs/loader-v4",
+      "solana-zk-token-proof-program": "programs/zk-token-proof",
+      "solana-config-program": "programs/config",
+      "solana-stake-program": "programs/stake"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-clap-v3-utils": {
+    "path": "clap-v3-utils",
+    "dependencies": {
+      "solana-remote-wallet": "remote-wallet",
+      "solana-zk-token-sdk": "zk-token-sdk"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-fee": {
+    "path": "fee",
+    "dependencies": {
+      "solana-svm-transaction": "svm-transaction"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-poseidon": {
+    "path": "poseidon",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-zk-token-proof-program-tests": {
+    "path": "programs/zk-token-proof-tests",
+    "dependencies": {},
+    "dev_dependencies": {
+      "solana-zk-token-sdk": "zk-token-sdk",
+      "solana-compute-budget": "compute-budget",
+      "solana-program-test": "program-test"
+    }
+  },
+  "solana-svm-conformance": {
+    "path": "svm-conformance",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-thin-client": {
+    "path": "thin-client",
+    "dependencies": {
+      "solana-rpc-client": "rpc-client",
+      "solana-rpc-client-api": "rpc-client-api",
+      "solana-connection-cache": "connection-cache"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-unified-scheduler-logic": {
+    "path": "unified-scheduler-logic",
+    "dependencies": {
+      "solana-runtime-transaction": "runtime-transaction"
+    },
+    "dev_dependencies": {
+      "solana-runtime-transaction": "runtime-transaction"
+    }
+  },
+  "solana-svm-transaction": {
+    "path": "svm-transaction",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-wen-restart": {
+    "path": "wen-restart",
+    "dependencies": {
+      "solana-vote": "vote",
+      "solana-vote-program": "programs/vote",
+      "solana-entry": "entry",
+      "solana-ledger": "ledger",
+      "solana-runtime": "runtime",
+      "solana-gossip": "gossip",
+      "solana-timings": "timings"
+    },
+    "dev_dependencies": {
+      "solana-accounts-db": "accounts-db",
+      "solana-entry": "entry",
+      "solana-streamer": "streamer",
+      "solana-runtime": "runtime"
+    }
+  },
+  "solana-stake-program": {
+    "path": "programs/stake",
+    "dependencies": {
+      "solana-type-overrides": "type-overrides",
+      "solana-log-collector": "log-collector",
+      "solana-config-program": "programs/config",
+      "solana-program-runtime": "program-runtime"
+    },
+    "dev_dependencies": {
+      "solana-compute-budget": "compute-budget",
+      "solana-vote-program": "programs/vote"
+    }
+  },
+  "solana-transaction-metrics-tracker": {
+    "path": "transaction-metrics-tracker",
+    "dependencies": {
+      "solana-perf": "perf"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-stake-program-tests": {
+    "path": "programs/stake-tests",
+    "dependencies": {},
+    "dev_dependencies": {
+      "solana-program-test": "program-test",
+      "solana-vote-program": "programs/vote"
+    }
+  },
+  "solana-compute-budget-instruction": {
+    "path": "compute-budget-instruction",
+    "dependencies": {
+      "solana-builtins-default-costs": "builtins-default-costs",
+      "solana-svm-transaction": "svm-transaction",
+      "solana-compute-budget": "compute-budget"
+    },
+    "dev_dependencies": {
+      "solana-builtins-default-costs": "builtins-default-costs"
+    }
+  },
+  "agave-thread-manager": {
+    "path": "thread-manager",
+    "dependencies": {
+      "solana-metrics": "metrics"
+    },
+    "dev_dependencies": {
+      "agave-thread-manager": "."
+    }
+  },
+  "solana-type-overrides": {
+    "path": "type-overrides",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-bpf-loader-program-tests": {
+    "path": "programs/bpf-loader-tests",
+    "dependencies": {},
+    "dev_dependencies": {
+      "solana-bpf-loader-program": "programs/bpf_loader",
+      "solana-program-test": "program-test"
+    }
+  },
+  "agave-store-histogram": {
+    "path": "accounts-db/store-histogram",
+    "dependencies": {
+      "solana-version": "version"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-quic-client": {
+    "path": "quic-client",
+    "dependencies": {
+      "solana-rpc-client-api": "rpc-client-api",
+      "solana-streamer": "streamer",
+      "solana-tls-utils": "tls-utils",
+      "solana-net-utils": "net-utils",
+      "solana-measure": "measure",
+      "solana-metrics": "metrics",
+      "solana-connection-cache": "connection-cache"
+    },
+    "dev_dependencies": {
+      "solana-net-utils": "net-utils",
+      "solana-perf": "perf"
+    }
+  },
+  "solana-accounts-bench": {
+    "path": "accounts-bench",
+    "dependencies": {
+      "solana-version": "version",
+      "solana-accounts-db": "accounts-db",
+      "solana-measure": "measure"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-bench-streamer": {
+    "path": "bench-streamer",
+    "dependencies": {
+      "solana-version": "version",
+      "solana-net-utils": "net-utils",
+      "solana-streamer": "streamer"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-banks-interface": {
+    "path": "banks-interface",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-banking-bench": {
+    "path": "banking-bench",
+    "dependencies": {
+      "solana-client": "client",
+      "solana-perf": "perf",
+      "solana-ledger": "ledger",
+      "solana-measure": "measure",
+      "solana-poh": "poh",
+      "solana-streamer": "streamer",
+      "agave-banking-stage-ingress-types": "banking-stage-ingress-types",
+      "solana-tpu-client": "tpu-client",
+      "solana-runtime": "runtime",
+      "solana-core": "core",
+      "solana-gossip": "gossip",
+      "solana-version": "version"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-genesis": {
+    "path": "genesis",
+    "dependencies": {
+      "solana-ledger": "ledger",
+      "solana-clap-utils": "clap-utils",
+      "solana-accounts-db": "accounts-db",
+      "solana-cli-config": "cli-config",
+      "solana-stake-program": "programs/stake",
+      "solana-entry": "entry",
+      "solana-version": "version",
+      "solana-runtime": "runtime",
+      "solana-rpc-client-api": "rpc-client-api",
+      "solana-vote-program": "programs/vote",
+      "solana-rpc-client": "rpc-client"
+    },
+    "dev_dependencies": {
+      "solana-runtime": "runtime"
+    }
+  },
+  "rbpf-cli": {
+    "path": "rbpf-cli",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-net-shaper": {
+    "path": "net-shaper",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-zk-elgamal-proof-program": {
+    "path": "programs/zk-elgamal-proof",
+    "dependencies": {
+      "solana-zk-sdk": "zk-sdk",
+      "solana-program-runtime": "program-runtime",
+      "solana-log-collector": "log-collector"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-system-program": {
+    "path": "programs/system",
+    "dependencies": {
+      "solana-log-collector": "log-collector",
+      "solana-program-runtime": "program-runtime",
+      "solana-type-overrides": "type-overrides"
+    },
+    "dev_dependencies": {
+      "solana-compute-budget": "compute-budget"
+    }
+  },
+  "solana-remote-wallet": {
+    "path": "remote-wallet",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-cli-config": {
+    "path": "cli-config",
+    "dependencies": {
+      "solana-clap-utils": "clap-utils"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-net-utils": {
+    "path": "net-utils",
+    "dependencies": {
+      "solana-version": "version"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-vote-program": {
+    "path": "programs/vote",
+    "dependencies": {
+      "solana-metrics": "metrics",
+      "solana-program-runtime": "program-runtime"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-download-utils": {
+    "path": "download-utils",
+    "dependencies": {
+      "solana-runtime": "runtime"
+    },
+    "dev_dependencies": {
+      "solana-runtime": "runtime"
+    }
+  },
+  "solana-address-lookup-table-program": {
+    "path": "programs/address-lookup-table",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-rayon-threadlimit": {
+    "path": "rayon-threadlimit",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-zk-sdk": {
+    "path": "zk-sdk",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-merkle-root-bench": {
+    "path": "merkle-root-bench",
+    "dependencies": {
+      "solana-measure": "measure",
+      "solana-accounts-db": "accounts-db",
+      "solana-version": "version"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-vortexor": {
+    "path": "vortexor",
+    "dependencies": {
+      "solana-metrics": "metrics",
+      "solana-core": "core",
+      "solana-transaction-metrics-tracker": "transaction-metrics-tracker",
+      "solana-version": "version",
+      "solana-net-utils": "net-utils",
+      "solana-streamer": "streamer",
+      "solana-clap-utils": "clap-utils",
+      "solana-measure": "measure",
+      "solana-perf": "perf"
+    },
+    "dev_dependencies": {
+      "solana-streamer": "streamer"
+    }
+  },
+  "solana-core": {
+    "path": "core",
+    "dependencies": {
+      "solana-bloom": "bloom",
+      "solana-vote-program": "programs/vote",
+      "solana-perf": "perf",
+      "solana-cost-model": "cost-model",
+      "solana-compute-budget": "compute-budget",
+      "solana-net-utils": "net-utils",
+      "solana-vote": "vote",
+      "solana-builtins-default-costs": "builtins-default-costs",
+      "solana-streamer": "streamer",
+      "solana-timings": "timings",
+      "solana-rpc": "rpc",
+      "solana-metrics": "metrics",
+      "solana-fee": "fee",
+      "solana-tpu-client": "tpu-client",
+      "agave-banking-stage-ingress-types": "banking-stage-ingress-types",
+      "solana-gossip": "gossip",
+      "solana-connection-cache": "connection-cache",
+      "solana-accounts-db": "accounts-db",
+      "solana-runtime": "runtime",
+      "solana-geyser-plugin-manager": "geyser-plugin-manager",
+      "solana-poh": "poh",
+      "solana-unified-scheduler-pool": "unified-scheduler-pool",
+      "solana-version": "version",
+      "solana-ledger": "ledger",
+      "solana-send-transaction-service": "send-transaction-service",
+      "solana-tls-utils": "tls-utils",
+      "solana-entry": "entry",
+      "solana-transaction-status": "transaction-status",
+      "solana-svm": "svm",
+      "solana-wen-restart": "wen-restart",
+      "solana-compute-budget-instruction": "compute-budget-instruction",
+      "solana-client": "client",
+      "solana-measure": "measure",
+      "solana-svm-transaction": "svm-transaction",
+      "agave-transaction-view": "transaction-view",
+      "solana-rayon-threadlimit": "rayon-threadlimit",
+      "solana-rpc-client-api": "rpc-client-api",
+      "solana-runtime-transaction": "runtime-transaction",
+      "agave-thread-manager": "thread-manager",
+      "solana-quic-client": "quic-client",
+      "solana-turbine": "turbine"
+    },
+    "dev_dependencies": {
+      "solana-core": ".",
+      "solana-poh": "poh",
+      "solana-rpc": "rpc",
+      "solana-compute-budget-program": "programs/compute-budget",
+      "solana-net-utils": "net-utils",
+      "solana-ledger": "ledger",
+      "solana-system-program": "programs/system",
+      "solana-stake-program": "programs/stake",
+      "solana-unified-scheduler-logic": "unified-scheduler-logic",
+      "solana-unified-scheduler-pool": "unified-scheduler-pool",
+      "solana-cost-model": "cost-model",
+      "solana-vote": "vote",
+      "solana-program-runtime": "program-runtime",
+      "solana-address-lookup-table-program": "programs/address-lookup-table"
+    }
+  },
+  "solana-runtime": {
+    "path": "runtime",
+    "dependencies": {
+      "solana-fee": "fee",
+      "solana-builtins": "builtins",
+      "solana-svm-rent-collector": "svm-rent-collector",
+      "solana-perf": "perf",
+      "solana-version": "version",
+      "solana-metrics": "metrics",
+      "solana-svm-transaction": "svm-transaction",
+      "solana-bpf-loader-program": "programs/bpf_loader",
+      "solana-runtime-transaction": "runtime-transaction",
+      "solana-bucket-map": "bucket_map",
+      "solana-inline-spl": "inline-spl",
+      "solana-stake-program": "programs/stake",
+      "solana-config-program": "programs/config",
+      "solana-unified-scheduler-logic": "unified-scheduler-logic",
+      "solana-accounts-db": "accounts-db",
+      "solana-cost-model": "cost-model",
+      "solana-measure": "measure",
+      "solana-compute-budget-instruction": "compute-budget-instruction",
+      "solana-rayon-threadlimit": "rayon-threadlimit",
+      "solana-timings": "timings",
+      "solana-vote-program": "programs/vote",
+      "solana-program-runtime": "program-runtime",
+      "solana-lattice-hash": "lattice-hash",
+      "solana-compute-budget": "compute-budget",
+      "solana-svm": "svm",
+      "solana-transaction-status-client-types": "transaction-status-client-types",
+      "solana-system-program": "programs/system",
+      "solana-vote": "vote"
+    },
+    "dev_dependencies": {
+      "solana-builtins": "builtins",
+      "solana-runtime": ".",
+      "solana-runtime-transaction": "runtime-transaction",
+      "solana-svm": "svm",
+      "agave-transaction-view": "transaction-view",
+      "solana-accounts-db": "accounts-db"
+    }
+  },
+  "agave-store-tool": {
+    "path": "accounts-db/store-tool",
+    "dependencies": {
+      "solana-version": "version",
+      "solana-accounts-db": "accounts-db"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-keygen": {
+    "path": "keygen",
+    "dependencies": {
+      "solana-cli-config": "cli-config",
+      "solana-clap-v3-utils": "clap-v3-utils",
+      "solana-version": "version",
+      "solana-remote-wallet": "remote-wallet"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-measure": {
+    "path": "measure",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-storage-proto": {
+    "path": "storage-proto",
+    "dependencies": {
+      "solana-transaction-status": "transaction-status",
+      "solana-account-decoder": "account-decoder"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-unified-scheduler-pool": {
+    "path": "unified-scheduler-pool",
+    "dependencies": {
+      "solana-unified-scheduler-logic": "unified-scheduler-logic",
+      "solana-ledger": "ledger",
+      "solana-runtime-transaction": "runtime-transaction",
+      "solana-poh": "poh",
+      "agave-banking-stage-ingress-types": "banking-stage-ingress-types",
+      "solana-timings": "timings",
+      "solana-runtime": "runtime"
+    },
+    "dev_dependencies": {
+      "solana-entry": "entry",
+      "solana-runtime": "runtime"
+    }
+  },
+  "agave-banking-stage-ingress-types": {
+    "path": "banking-stage-ingress-types",
+    "dependencies": {
+      "solana-perf": "perf"
+    },
+    "dev_dependencies": {}
+  },
+  "proto": {
+    "path": "storage-bigtable/build-proto",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-turbine": {
+    "path": "turbine",
+    "dependencies": {
+      "solana-net-utils": "net-utils",
+      "solana-rpc": "rpc",
+      "solana-ledger": "ledger",
+      "solana-gossip": "gossip",
+      "solana-quic-client": "quic-client",
+      "solana-entry": "entry",
+      "solana-rpc-client-api": "rpc-client-api",
+      "solana-streamer": "streamer",
+      "solana-measure": "measure",
+      "solana-poh": "poh",
+      "solana-rayon-threadlimit": "rayon-threadlimit",
+      "solana-geyser-plugin-manager": "geyser-plugin-manager",
+      "solana-runtime": "runtime",
+      "solana-metrics": "metrics",
+      "solana-perf": "perf",
+      "solana-tls-utils": "tls-utils"
+    },
+    "dev_dependencies": {
+      "solana-runtime": "runtime"
+    }
+  },
+  "solana-udp-client": {
+    "path": "udp-client",
+    "dependencies": {
+      "solana-net-utils": "net-utils",
+      "solana-connection-cache": "connection-cache",
+      "solana-streamer": "streamer"
+    },
+    "dev_dependencies": {
+      "solana-net-utils": "net-utils"
+    }
+  },
+  "solana-connection-cache": {
+    "path": "connection-cache",
+    "dependencies": {
+      "solana-net-utils": "net-utils",
+      "solana-metrics": "metrics",
+      "solana-measure": "measure"
+    },
+    "dev_dependencies": {
+      "solana-net-utils": "net-utils"
+    }
+  },
+  "solana-rpc-client-api": {
+    "path": "rpc-client-api",
+    "dependencies": {
+      "solana-account-decoder-client-types": "account-decoder-client-types",
+      "solana-inline-spl": "inline-spl",
+      "solana-transaction-status-client-types": "transaction-status-client-types",
+      "solana-version": "version"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-stake-accounts": {
+    "path": "stake-accounts",
+    "dependencies": {
+      "solana-stake-program": "programs/stake",
+      "solana-version": "version",
+      "solana-rpc-client": "rpc-client",
+      "solana-rpc-client-api": "rpc-client-api",
+      "solana-cli-config": "cli-config",
+      "solana-remote-wallet": "remote-wallet",
+      "solana-clap-utils": "clap-utils"
+    },
+    "dev_dependencies": {
+      "solana-runtime": "runtime"
+    }
+  },
+  "solana-send-transaction-service": {
+    "path": "send-transaction-service",
+    "dependencies": {
+      "solana-client": "client",
+      "solana-metrics": "metrics",
+      "solana-connection-cache": "connection-cache",
+      "solana-tpu-client-next": "tpu-client-next",
+      "solana-measure": "measure",
+      "solana-runtime": "runtime"
+    },
+    "dev_dependencies": {
+      "solana-runtime": "runtime"
+    }
+  },
+  "solana-log-collector": {
+    "path": "log-collector",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-local-cluster": {
+    "path": "local-cluster",
+    "dependencies": {
+      "solana-stake-program": "programs/stake",
+      "solana-turbine": "turbine",
+      "solana-core": "core",
+      "solana-tpu-client": "tpu-client",
+      "solana-vote": "vote",
+      "solana-vote-program": "programs/vote",
+      "solana-runtime": "runtime",
+      "solana-thin-client": "thin-client",
+      "solana-entry": "entry",
+      "solana-rpc-client-api": "rpc-client-api",
+      "solana-gossip": "gossip",
+      "solana-rpc-client": "rpc-client",
+      "solana-accounts-db": "accounts-db",
+      "solana-ledger": "ledger",
+      "solana-config-program": "programs/config",
+      "solana-streamer": "streamer",
+      "solana-client": "client",
+      "solana-quic-client": "quic-client",
+      "solana-pubsub-client": "pubsub-client",
+      "solana-net-utils": "net-utils"
+    },
+    "dev_dependencies": {
+      "solana-core": "core",
+      "solana-download-utils": "download-utils",
+      "solana-ledger": "ledger",
+      "solana-local-cluster": ".",
+      "solana-runtime": "runtime"
+    }
+  },
+  "agave-cargo-registry": {
+    "path": "cargo-registry",
+    "dependencies": {
+      "solana-cli-config": "cli-config",
+      "solana-clap-utils": "clap-utils",
+      "solana-rpc-client": "rpc-client",
+      "solana-cli": "cli",
+      "solana-rpc-client-api": "rpc-client-api",
+      "solana-cli-output": "cli-output",
+      "solana-remote-wallet": "remote-wallet",
+      "solana-version": "version"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-loader-v4-program": {
+    "path": "programs/loader-v4",
+    "dependencies": {
+      "solana-program-runtime": "program-runtime",
+      "solana-bpf-loader-program": "programs/bpf_loader",
+      "solana-measure": "measure",
+      "solana-log-collector": "log-collector",
+      "solana-compute-budget": "compute-budget",
+      "solana-type-overrides": "type-overrides"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-pubsub-client": {
+    "path": "pubsub-client",
+    "dependencies": {
+      "solana-account-decoder-client-types": "account-decoder-client-types",
+      "solana-rpc-client-api": "rpc-client-api"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-notifier": {
+    "path": "notifier",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-rpc-client-nonce-utils": {
+    "path": "rpc-client-nonce-utils",
+    "dependencies": {
+      "solana-rpc-client": "rpc-client",
+      "solana-clap-utils": "clap-utils"
+    },
+    "dev_dependencies": {
+      "solana-account-decoder": "account-decoder",
+      "solana-rpc-client-api": "rpc-client-api"
+    }
+  },
+  "solana-program-test": {
+    "path": "program-test",
+    "dependencies": {
+      "solana-timings": "timings",
+      "solana-accounts-db": "accounts-db",
+      "solana-vote-program": "programs/vote",
+      "solana-banks-interface": "banks-interface",
+      "solana-runtime": "runtime",
+      "solana-banks-server": "banks-server",
+      "solana-svm": "svm",
+      "solana-inline-spl": "inline-spl",
+      "solana-banks-client": "banks-client",
+      "solana-log-collector": "log-collector",
+      "solana-bpf-loader-program": "programs/bpf_loader",
+      "solana-compute-budget": "compute-budget",
+      "solana-program-runtime": "program-runtime"
+    },
+    "dev_dependencies": {
+      "solana-stake-program": "programs/stake"
+    }
+  },
+  "solana-merkle-tree": {
+    "path": "merkle-tree",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-banks-client": {
+    "path": "banks-client",
+    "dependencies": {
+      "solana-banks-interface": "banks-interface"
+    },
+    "dev_dependencies": {
+      "solana-banks-server": "banks-server",
+      "solana-runtime": "runtime"
+    }
+  },
+  "solana-entry": {
+    "path": "entry",
+    "dependencies": {
+      "solana-merkle-tree": "merkle-tree",
+      "solana-rayon-threadlimit": "rayon-threadlimit",
+      "solana-runtime-transaction": "runtime-transaction",
+      "solana-perf": "perf",
+      "solana-measure": "measure",
+      "solana-metrics": "metrics"
+    },
+    "dev_dependencies": {
+      "solana-perf": "perf"
+    }
+  },
+  "solana-bucket-map": {
+    "path": "bucket_map",
+    "dependencies": {
+      "solana-measure": "measure"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-tls-utils": {
+    "path": "tls-utils",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-address-lookup-table-program-tests": {
+    "path": "programs/address-lookup-table-tests",
+    "dependencies": {},
+    "dev_dependencies": {
+      "solana-program-runtime": "program-runtime",
+      "solana-program-test": "program-test",
+      "solana-address-lookup-table-program": "programs/address-lookup-table",
+      "solana-system-program": "programs/system"
+    }
+  },
+  "solana-cargo-build-sbf": {
+    "path": "platform-tools-sdk/cargo-build-sbf",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-svm-rent-collector": {
+    "path": "svm-rent-collector",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-log-analyzer": {
+    "path": "log-analyzer",
+    "dependencies": {
+      "solana-version": "version"
+    },
+    "dev_dependencies": {}
+  },
+  "agave-install": {
+    "path": "install",
+    "dependencies": {
+      "solana-clap-utils": "clap-utils",
+      "solana-config-program": "programs/config",
+      "solana-rpc-client": "rpc-client",
+      "solana-version": "version"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-clap-utils": {
+    "path": "clap-utils",
+    "dependencies": {
+      "solana-remote-wallet": "remote-wallet"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-transaction-dos": {
+    "path": "transaction-dos",
+    "dependencies": {
+      "solana-faucet": "faucet",
+      "solana-client": "client",
+      "solana-net-utils": "net-utils",
+      "solana-streamer": "streamer",
+      "solana-version": "version",
+      "solana-runtime": "runtime",
+      "solana-transaction-status": "transaction-status",
+      "solana-measure": "measure",
+      "solana-rpc-client": "rpc-client",
+      "solana-clap-utils": "clap-utils",
+      "solana-cli": "cli",
+      "solana-gossip": "gossip"
+    },
+    "dev_dependencies": {
+      "solana-runtime": "runtime",
+      "solana-local-cluster": "local-cluster",
+      "solana-core": "core"
+    }
+  },
+  "solana-gossip": {
+    "path": "gossip",
+    "dependencies": {
+      "solana-clap-utils": "clap-utils",
+      "solana-runtime": "runtime",
+      "solana-version": "version",
+      "solana-rpc-client": "rpc-client",
+      "solana-vote": "vote",
+      "solana-net-utils": "net-utils",
+      "solana-connection-cache": "connection-cache",
+      "solana-bloom": "bloom",
+      "solana-ledger": "ledger",
+      "solana-perf": "perf",
+      "solana-metrics": "metrics",
+      "solana-tpu-client": "tpu-client",
+      "solana-entry": "entry",
+      "solana-streamer": "streamer",
+      "solana-rayon-threadlimit": "rayon-threadlimit",
+      "solana-measure": "measure",
+      "solana-client": "client",
+      "solana-vote-program": "programs/vote"
+    },
+    "dev_dependencies": {
+      "solana-runtime": "runtime",
+      "solana-perf": "perf"
+    }
+  },
+  "solana-rpc": {
+    "path": "rpc",
+    "dependencies": {
+      "solana-vote": "vote",
+      "solana-entry": "entry",
+      "solana-stake-program": "programs/stake",
+      "solana-ledger": "ledger",
+      "solana-send-transaction-service": "send-transaction-service",
+      "solana-gossip": "gossip",
+      "solana-version": "version",
+      "solana-perf": "perf",
+      "solana-rpc-client-api": "rpc-client-api",
+      "solana-metrics": "metrics",
+      "solana-poh": "poh",
+      "solana-rayon-threadlimit": "rayon-threadlimit",
+      "solana-accounts-db": "accounts-db",
+      "solana-account-decoder": "account-decoder",
+      "solana-runtime-transaction": "runtime-transaction",
+      "solana-client": "client",
+      "solana-svm": "svm",
+      "solana-streamer": "streamer",
+      "solana-runtime": "runtime",
+      "solana-measure": "measure",
+      "solana-storage-bigtable": "storage-bigtable",
+      "solana-transaction-status": "transaction-status",
+      "solana-vote-program": "programs/vote",
+      "solana-faucet": "faucet",
+      "solana-inline-spl": "inline-spl",
+      "solana-tpu-client": "tpu-client"
+    },
+    "dev_dependencies": {
+      "solana-stake-program": "programs/stake",
+      "solana-runtime-transaction": "runtime-transaction",
+      "solana-rpc": ".",
+      "solana-net-utils": "net-utils",
+      "solana-runtime": "runtime"
+    }
+  },
+  "solana-accounts-db": {
+    "path": "accounts-db",
+    "dependencies": {
+      "solana-svm-transaction": "svm-transaction",
+      "solana-vote-program": "programs/vote",
+      "solana-bucket-map": "bucket_map",
+      "solana-metrics": "metrics",
+      "solana-inline-spl": "inline-spl",
+      "solana-lattice-hash": "lattice-hash",
+      "solana-measure": "measure",
+      "solana-rayon-threadlimit": "rayon-threadlimit",
+      "solana-stake-program": "programs/stake"
+    },
+    "dev_dependencies": {
+      "solana-compute-budget": "compute-budget",
+      "solana-accounts-db": "."
+    }
+  },
+  "solana-streamer": {
+    "path": "streamer",
+    "dependencies": {
+      "solana-perf": "perf",
+      "solana-metrics": "metrics",
+      "solana-tls-utils": "tls-utils",
+      "solana-transaction-metrics-tracker": "transaction-metrics-tracker",
+      "solana-measure": "measure",
+      "solana-net-utils": "net-utils"
+    },
+    "dev_dependencies": {
+      "solana-streamer": ".",
+      "solana-net-utils": "net-utils"
+    }
+  },
+  "solana-transaction-status-client-types": {
+    "path": "transaction-status-client-types",
+    "dependencies": {
+      "solana-account-decoder-client-types": "account-decoder-client-types"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-zk-token-sdk": {
+    "path": "zk-token-sdk",
+    "dependencies": {
+      "solana-curve25519": "curves/curve25519"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-cli-output": {
+    "path": "cli-output",
+    "dependencies": {
+      "solana-cli-config": "cli-config",
+      "solana-clap-utils": "clap-utils",
+      "solana-rpc-client-api": "rpc-client-api",
+      "solana-transaction-status": "transaction-status",
+      "solana-account-decoder": "account-decoder",
+      "solana-vote-program": "programs/vote"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-accounts-cluster-bench": {
+    "path": "accounts-cluster-bench",
+    "dependencies": {
+      "solana-account-decoder": "account-decoder",
+      "solana-streamer": "streamer",
+      "solana-version": "version",
+      "solana-gossip": "gossip",
+      "solana-inline-spl": "inline-spl",
+      "solana-rpc-client": "rpc-client",
+      "solana-net-utils": "net-utils",
+      "solana-rpc-client-api": "rpc-client-api",
+      "solana-transaction-status": "transaction-status",
+      "solana-clap-utils": "clap-utils",
+      "solana-measure": "measure",
+      "solana-client": "client",
+      "solana-cli-config": "cli-config",
+      "solana-runtime": "runtime"
+    },
+    "dev_dependencies": {
+      "solana-runtime": "runtime",
+      "solana-test-validator": "test-validator",
+      "solana-local-cluster": "local-cluster",
+      "solana-core": "core",
+      "solana-accounts-db": "accounts-db",
+      "solana-faucet": "faucet"
+    }
+  },
+  "solana-version": {
+    "path": "version",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-bloom": {
+    "path": "bloom",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-builtins-default-costs": {
+    "path": "builtins-default-costs",
+    "dependencies": {
+      "solana-vote-program": "programs/vote",
+      "solana-loader-v4-program": "programs/loader-v4",
+      "solana-system-program": "programs/system",
+      "solana-config-program": "programs/config",
+      "solana-stake-program": "programs/stake",
+      "solana-address-lookup-table-program": "programs/address-lookup-table",
+      "solana-bpf-loader-program": "programs/bpf_loader",
+      "solana-compute-budget-program": "programs/compute-budget"
+    },
+    "dev_dependencies": {
+      "solana-builtins-default-costs": "."
+    }
+  },
+  "solana-timings": {
+    "path": "timings",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-cli": {
+    "path": "cli",
+    "dependencies": {
+      "solana-udp-client": "udp-client",
+      "solana-config-program": "programs/config",
+      "solana-compute-budget": "compute-budget",
+      "solana-bpf-loader-program": "programs/bpf_loader",
+      "solana-program-runtime": "program-runtime",
+      "solana-pubsub-client": "pubsub-client",
+      "solana-account-decoder": "account-decoder",
+      "solana-cli-config": "cli-config",
+      "solana-connection-cache": "connection-cache",
+      "solana-rpc-client-nonce-utils": "rpc-client-nonce-utils",
+      "solana-rpc-client-api": "rpc-client-api",
+      "solana-rpc-client": "rpc-client",
+      "solana-version": "version",
+      "solana-tps-client": "tps-client",
+      "solana-cli-output": "cli-output",
+      "solana-loader-v4-program": "programs/loader-v4",
+      "solana-client": "client",
+      "solana-transaction-status": "transaction-status",
+      "solana-remote-wallet": "remote-wallet",
+      "solana-quic-client": "quic-client",
+      "solana-tpu-client": "tpu-client",
+      "solana-streamer": "streamer",
+      "solana-vote-program": "programs/vote",
+      "solana-clap-utils": "clap-utils"
+    },
+    "dev_dependencies": {
+      "solana-rpc": "rpc",
+      "solana-streamer": "streamer",
+      "solana-faucet": "faucet",
+      "solana-test-validator": "test-validator"
+    }
+  },
+  "solana-rpc-client": {
+    "path": "rpc-client",
+    "dependencies": {
+      "solana-version": "version",
+      "solana-rpc-client-api": "rpc-client-api",
+      "solana-account-decoder-client-types": "account-decoder-client-types",
+      "solana-transaction-status-client-types": "transaction-status-client-types"
+    },
+    "dev_dependencies": {
+      "solana-account-decoder": "account-decoder"
+    }
+  },
+  "solana-test-validator": {
+    "path": "test-validator",
+    "dependencies": {
+      "solana-rpc-client-api": "rpc-client-api",
+      "solana-accounts-db": "accounts-db",
+      "solana-runtime": "runtime",
+      "solana-streamer": "streamer",
+      "solana-compute-budget": "compute-budget",
+      "solana-core": "core",
+      "solana-gossip": "gossip",
+      "solana-rpc": "rpc",
+      "solana-program-test": "program-test",
+      "solana-tpu-client": "tpu-client",
+      "solana-net-utils": "net-utils",
+      "solana-rpc-client": "rpc-client",
+      "solana-ledger": "ledger",
+      "solana-cli-output": "cli-output",
+      "solana-geyser-plugin-manager": "geyser-plugin-manager"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-tokens": {
+    "path": "tokens",
+    "dependencies": {
+      "solana-version": "version",
+      "solana-rpc-client": "rpc-client",
+      "solana-clap-utils": "clap-utils",
+      "solana-remote-wallet": "remote-wallet",
+      "solana-cli-config": "cli-config",
+      "solana-transaction-status": "transaction-status",
+      "solana-rpc-client-api": "rpc-client-api",
+      "solana-account-decoder": "account-decoder"
+    },
+    "dev_dependencies": {
+      "solana-streamer": "streamer",
+      "solana-test-validator": "test-validator"
+    }
+  },
+  "solana-bench-tps": {
+    "path": "bench-tps",
+    "dependencies": {
+      "solana-core": "core",
+      "solana-transaction-status": "transaction-status",
+      "solana-runtime": "runtime",
+      "solana-clap-utils": "clap-utils",
+      "solana-connection-cache": "connection-cache",
+      "solana-rpc-client": "rpc-client",
+      "solana-genesis": "genesis",
+      "solana-metrics": "metrics",
+      "solana-rpc-client-nonce-utils": "rpc-client-nonce-utils",
+      "solana-measure": "measure",
+      "solana-rpc": "rpc",
+      "solana-streamer": "streamer",
+      "solana-tps-client": "tps-client",
+      "solana-cli-config": "cli-config",
+      "solana-quic-client": "quic-client",
+      "solana-gossip": "gossip",
+      "solana-rpc-client-api": "rpc-client-api",
+      "solana-version": "version",
+      "solana-net-utils": "net-utils",
+      "solana-client": "client",
+      "solana-tpu-client": "tpu-client",
+      "solana-faucet": "faucet"
+    },
+    "dev_dependencies": {
+      "solana-test-validator": "test-validator",
+      "solana-runtime": "runtime",
+      "solana-tps-client": "tps-client",
+      "solana-local-cluster": "local-cluster"
+    }
+  },
+  "solana-program-runtime": {
+    "path": "program-runtime",
+    "dependencies": {
+      "solana-log-collector": "log-collector",
+      "solana-measure": "measure",
+      "solana-metrics": "metrics",
+      "solana-type-overrides": "type-overrides",
+      "solana-compute-budget": "compute-budget",
+      "solana-timings": "timings"
+    },
+    "dev_dependencies": {
+      "solana-compute-budget": "compute-budget"
+    }
+  },
+  "solana-tpu-client-next": {
+    "path": "tpu-client-next",
+    "dependencies": {
+      "solana-streamer": "streamer",
+      "solana-connection-cache": "connection-cache",
+      "solana-tls-utils": "tls-utils",
+      "solana-rpc-client": "rpc-client",
+      "solana-tpu-client": "tpu-client",
+      "solana-measure": "measure"
+    },
+    "dev_dependencies": {
+      "solana-cli-config": "cli-config",
+      "solana-streamer": "streamer"
+    }
+  },
+  "solana-account-decoder-client-types": {
+    "path": "account-decoder-client-types",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-perf": {
+    "path": "perf",
+    "dependencies": {
+      "solana-vote": "vote",
+      "solana-metrics": "metrics",
+      "solana-vote-program": "programs/vote",
+      "solana-rayon-threadlimit": "rayon-threadlimit"
+    },
+    "dev_dependencies": {
+      "solana-perf": "."
+    }
+  },
+  "solana-poh": {
+    "path": "poh",
+    "dependencies": {
+      "solana-ledger": "ledger",
+      "solana-measure": "measure",
+      "solana-entry": "entry",
+      "solana-metrics": "metrics",
+      "solana-runtime": "runtime"
+    },
+    "dev_dependencies": {
+      "solana-perf": "perf",
+      "solana-poh": ".",
+      "solana-runtime": "runtime"
+    }
+  },
+  "solana-ed25519-program-tests": {
+    "path": "programs/ed25519-tests",
+    "dependencies": {},
+    "dev_dependencies": {
+      "solana-program-test": "program-test"
+    }
+  },
+  "solana-tps-client": {
+    "path": "tps-client",
+    "dependencies": {
+      "solana-streamer": "streamer",
+      "solana-connection-cache": "connection-cache",
+      "solana-tpu-client": "tpu-client",
+      "solana-runtime": "runtime",
+      "solana-transaction-status": "transaction-status",
+      "solana-quic-client": "quic-client",
+      "solana-rpc-client-api": "rpc-client-api",
+      "solana-rpc-client": "rpc-client",
+      "solana-client": "client"
+    },
+    "dev_dependencies": {
+      "solana-runtime": "runtime"
+    }
+  },
+  "solana-bpf-loader-program": {
+    "path": "programs/bpf_loader",
+    "dependencies": {
+      "solana-timings": "timings",
+      "solana-type-overrides": "type-overrides",
+      "solana-measure": "measure",
+      "solana-log-collector": "log-collector",
+      "solana-curve25519": "curves/curve25519",
+      "solana-compute-budget": "compute-budget",
+      "solana-poseidon": "poseidon",
+      "solana-program-runtime": "program-runtime"
+    },
+    "dev_dependencies": {
+      "solana-bpf-loader-program": "."
+    }
+  },
+  "solana-zk-keygen": {
+    "path": "zk-keygen",
+    "dependencies": {
+      "solana-version": "version",
+      "solana-clap-v3-utils": "clap-v3-utils",
+      "solana-zk-token-sdk": "zk-token-sdk",
+      "solana-remote-wallet": "remote-wallet"
+    },
+    "dev_dependencies": {}
+  },
+  "agave-ledger-tool": {
+    "path": "ledger-tool",
+    "dependencies": {
+      "solana-rpc": "rpc",
+      "solana-clap-utils": "clap-utils",
+      "solana-entry": "entry",
+      "solana-streamer": "streamer",
+      "solana-type-overrides": "type-overrides",
+      "solana-geyser-plugin-manager": "geyser-plugin-manager",
+      "solana-compute-budget": "compute-budget",
+      "solana-stake-program": "programs/stake",
+      "solana-vote-program": "programs/vote",
+      "solana-log-collector": "log-collector",
+      "solana-bpf-loader-program": "programs/bpf_loader",
+      "solana-accounts-db": "accounts-db",
+      "solana-program-runtime": "program-runtime",
+      "solana-runtime": "runtime",
+      "solana-account-decoder": "account-decoder",
+      "solana-measure": "measure",
+      "solana-runtime-transaction": "runtime-transaction",
+      "solana-transaction-status": "transaction-status",
+      "solana-unified-scheduler-pool": "unified-scheduler-pool",
+      "solana-version": "version",
+      "solana-cli-output": "cli-output",
+      "solana-core": "core",
+      "solana-cost-model": "cost-model",
+      "solana-ledger": "ledger",
+      "solana-gossip": "gossip",
+      "solana-storage-bigtable": "storage-bigtable"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-tpu-client": {
+    "path": "tpu-client",
+    "dependencies": {
+      "solana-rpc-client-api": "rpc-client-api",
+      "solana-net-utils": "net-utils",
+      "solana-measure": "measure",
+      "solana-pubsub-client": "pubsub-client",
+      "solana-connection-cache": "connection-cache",
+      "solana-rpc-client": "rpc-client"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-upload-perf": {
+    "path": "upload-perf",
+    "dependencies": {
+      "solana-metrics": "metrics"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-geyser-plugin-manager": {
+    "path": "geyser-plugin-manager",
+    "dependencies": {
+      "solana-entry": "entry",
+      "solana-measure": "measure",
+      "solana-rpc": "rpc",
+      "solana-transaction-status": "transaction-status",
+      "agave-geyser-plugin-interface": "geyser-plugin-interface",
+      "solana-metrics": "metrics",
+      "solana-runtime": "runtime",
+      "solana-ledger": "ledger",
+      "solana-accounts-db": "accounts-db"
+    },
+    "dev_dependencies": {}
+  },
+  "agave-accounts-hash-cache-tool": {
+    "path": "accounts-db/accounts-hash-cache-tool",
+    "dependencies": {
+      "solana-clap-utils": "clap-utils",
+      "solana-accounts-db": "accounts-db",
+      "solana-version": "version"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-inline-spl": {
+    "path": "inline-spl",
+    "dependencies": {},
+    "dev_dependencies": {}
+  },
+  "solana-faucet": {
+    "path": "faucet",
+    "dependencies": {
+      "solana-metrics": "metrics",
+      "solana-clap-utils": "clap-utils",
+      "solana-cli-config": "cli-config",
+      "solana-version": "version"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-compute-budget-program-bench": {
+    "path": "programs/compute-budget-bench",
+    "dependencies": {
+      "solana-compute-budget": "compute-budget",
+      "solana-compute-budget-program": "programs/compute-budget",
+      "solana-compute-budget-instruction": "compute-budget-instruction",
+      "solana-svm-transaction": "svm-transaction"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-bench-vote": {
+    "path": "bench-vote",
+    "dependencies": {
+      "solana-streamer": "streamer",
+      "solana-connection-cache": "connection-cache",
+      "solana-client": "client",
+      "solana-clap-utils": "clap-utils",
+      "solana-version": "version",
+      "solana-vote-program": "programs/vote",
+      "solana-net-utils": "net-utils"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-account-decoder": {
+    "path": "account-decoder",
+    "dependencies": {
+      "solana-account-decoder-client-types": "account-decoder-client-types",
+      "solana-config-program": "programs/config"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-poh-bench": {
+    "path": "poh-bench",
+    "dependencies": {
+      "solana-version": "version",
+      "solana-rayon-threadlimit": "rayon-threadlimit",
+      "solana-perf": "perf",
+      "solana-entry": "entry",
+      "solana-measure": "measure"
+    },
+    "dev_dependencies": {}
+  },
+  "agave-geyser-plugin-interface": {
+    "path": "geyser-plugin-interface",
+    "dependencies": {
+      "solana-transaction-status": "transaction-status"
+    },
+    "dev_dependencies": {}
+  },
+  "solana-cost-model": {
+    "path": "cost-model",
+    "dependencies": {
+      "solana-builtins-default-costs": "builtins-default-costs",
+      "solana-compute-budget-instruction": "compute-budget-instruction",
+      "solana-metrics": "metrics",
+      "solana-vote-program": "programs/vote",
+      "solana-compute-budget": "compute-budget",
+      "solana-svm-transaction": "svm-transaction",
+      "solana-vote": "vote",
+      "solana-runtime-transaction": "runtime-transaction"
+    },
+    "dev_dependencies": {
+      "solana-compute-budget-program": "programs/compute-budget",
+      "solana-compute-budget-instruction": "compute-budget-instruction",
+      "solana-cost-model": ".",
+      "solana-runtime-transaction": "runtime-transaction",
+      "solana-system-program": "programs/system"
+    }
+  }
+}

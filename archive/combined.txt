@@ -1,0 +1,158 @@
+/* ------------------------------------------------
+My agave-monitor/clone-agave.sh is as follows:
+---------------------------------------------------*/
+
+#!/bin/bash
+# clone-agave.sh
+
+# Create target directory outside analyzer repo
+mkdir -p ../agave-clone
+cd ../agave-clone || exit 1
+
+# Clone with sparse checkout
+git clone \
+  --depth 1 \
+  --filter=blob:none \
+  --sparse \
+  https://github.com/anza-xyz/agave.git
+
+cd agave || exit 1
+git sparse-checkout set \
+  '*.toml' \
+  '/*/Cargo.toml' \
+  '/**/Cargo.toml'
+
+echo "Agave Cargo.toml files cloned to: $(pwd)"
+
+/* ------------------------------------------------
+My agave-monitor/Cargo.toml is as follows:
+---------------------------------------------------*/
+
+[package]
+name = "agave-deps-analyzer"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+toml = "0.7"
+walkdir = "2.4"
+serde_json = "1.0"
+
+
+/* ------------------------------------------------
+My agave-monitor/src/main.rs is as follows:
+---------------------------------------------------*/
+
+use std::collections::HashMap;
+use std::fs;
+use std::path::Path;
+use serde::{Serialize, Deserialize};
+use toml::{Value, Table};
+
+#[derive(Serialize, Deserialize, Debug)]
+struct PackageInfo {
+    path: String,
+    dependencies: HashMap<String, String>,
+    dev_dependencies: HashMap<String, String>,
+}
+
+fn analyze_workspace(workspace_root: &str) -> Result<HashMap<String, PackageInfo>, Box<dyn std::error::Error>> {
+    let manifest_path = Path::new(workspace_root).join("Cargo.toml");
+    let workspace_toml = fs::read_to_string(&manifest_path)?;
+    let workspace_data: Value = workspace_toml.parse()?;
+
+    let empty_table = Table::new();  // Keep this alive through scope
+    let workspace_deps = workspace_data
+        .get("workspace")
+        .and_then(|w| w.get("dependencies"))
+        .and_then(|d| d.as_table())
+        .unwrap_or(&empty_table);  // Now references long-lived value
+
+    let mut analysis = HashMap::new();
+
+    if let Some(members) = workspace_data
+        .get("workspace")
+        .and_then(|w| w.get("members"))
+        .and_then(|m| m.as_array())
+    {
+        for member in members {
+            if let Some(member_str) = member.as_str() {
+                let member_path = Path::new(workspace_root).join(member_str);
+                analyze_member_package(&member_path, workspace_deps, &mut analysis)?;
+            }
+        }
+    }
+
+    Ok(analysis)
+}
+
+fn analyze_member_package(
+    path: &Path,
+    workspace_deps: &Table,
+    analysis: &mut HashMap<String, PackageInfo>,
+) -> Result<(), Box<dyn std::error::Error>> {
+    let manifest_path = path.join("Cargo.toml");
+    let package_toml = fs::read_to_string(&manifest_path)?;
+    let package_data: Value = package_toml.parse()?;
+
+    let package_name = package_data
+        .get("package")
+        .and_then(|p| p.get("name"))
+        .and_then(|n| n.as_str())
+        .unwrap_or_default()
+        .to_string();
+
+    let (dependencies, dev_dependencies) = process_dependencies(&package_data, workspace_deps);
+
+    analysis.insert(
+        package_name,
+        PackageInfo {
+            path: path.strip_prefix(Path::new("."))?
+                .to_str()
+                .unwrap_or("")
+                .replace('\\', "/"),
+            dependencies,
+            dev_dependencies,
+        },
+    );
+
+    Ok(())
+}
+
+fn process_dependencies(package_data: &Value, workspace_deps: &Table) -> (HashMap<String, String>, HashMap<String, String>) {
+    let process = |deps: Option<&Table>| -> HashMap<String, String> {
+        deps.map_or_else(HashMap::new, |table| {
+            table.iter().filter_map(|(name, spec)| {
+                if spec.get("workspace").and_then(|w| w.as_bool()).unwrap_or(false) {
+                    workspace_deps.get(name)
+                        .and_then(|v| v.get("path"))
+                        .and_then(|p| p.as_str())
+                        .map(|path| (name.clone(), path.to_string()))
+                } else {
+                    spec.get("path")
+                        .and_then(|p| p.as_str())
+                        .map(|path| (name.clone(), path.to_string()))
+                }
+            }).collect()
+        })
+    };
+
+    let dependencies = process(package_data.get("dependencies").and_then(|d| d.as_table()));
+    let dev_dependencies = process(package_data.get("dev-dependencies").and_then(|d| d.as_table()));
+
+    (dependencies, dev_dependencies)
+}
+
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let args: Vec<String> = std::env::args().collect();
+    let default_path = String::from(".");
+    let workspace_root = args.get(1)
+        .map(|s| s.as_str())
+        .unwrap_or(&default_path);
+
+    let analysis = analyze_workspace(workspace_root)?;
+    println!("{}", serde_json::to_string_pretty(&analysis)?);
+    Ok(())
+}
+
