@@ -65,7 +65,7 @@ Output files are saved to `output/` directory. Example JSON structure:
 parent-folder/
 ├── agave-clone/
 │   └── agave/                # clone of agave with all Cargo.toml files
-└── agave-monitor/ (your analyzer code)
+└── agave-monitor/            # all build and run from here
     ├── output/               # output JSON file
     ├── src/
     │   └── main.rs           # Dependency extractor logic
