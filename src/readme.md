@@ -62,13 +62,17 @@ Output files are saved to `output/` directory. Example JSON structure:
 
 ## Project Structure
 ```
-agave-monitor/
-├── output/               # Generated JSON files
-├── src/
-│   └── main.rs           # Analysis logic
-├── clone-agave.sh        # Repository cloning script
-├── Cargo.toml            # Rust dependencies
-└── README.md             # This document
+parent-folder/
+├── agave-clone/
+│   └── agave/                # clone of agave with all Cargo.toml files
+└── agave-monitor/ (your analyzer code)
+    ├── output/               # output JSON file
+    ├── src/
+    │   └── main.rs           # Dependency extractor logic
+    │   └── README.md         # This document
+    ├── clone-agave.sh        # Repository cloning script
+    ├── Cargo.toml            
+    └── README.md             
 ```
 
 
