@@ -38,7 +38,7 @@ cd agave-monitor
 Do this only in case of errors. Open the file ```setup-custom-svm.sh``` and run each instructions manually. Worst case, you will know where exactly the error occurred.
 
 ### Workflow
-
+```
 ╔═══════════════════════════════╗
 ║ 1.   Clone Cargo.toml files   ║
 ║    from agave in agave-clone/ ║
@@ -102,7 +102,7 @@ Do this only in case of errors. Open the file ```setup-custom-svm.sh``` and run 
 ╔═══════════════════════════════╗
 ║             ENJOY             ║
 ╚═══════════════════════════════╝
-
+```
 
 ## Repository Structure
 ```
