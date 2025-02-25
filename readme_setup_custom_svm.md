@@ -24,6 +24,7 @@ A toolkit for creating customized Solana SVM environments through specfic packag
 ```
 git clone https://github.com/farawaystar/agave-monitor.git
 cd agave-monitor
+chmod +x setup-custom-svm.sh
 ```
 
 ## Usage 
