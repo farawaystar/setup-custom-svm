@@ -1,3 +1,6 @@
+follow [this link for one-click instructions](https://github.com/farawaystar/agave-monitor/tree/master/src) to clone a specific agave package
+
+
 # Cargo.toml Monitor
 
 A GitHub Actions workflow system to monitor and process changes to Cargo.toml files in external repositories. This example will mature into monitoring Solana agave validator client - as a start.

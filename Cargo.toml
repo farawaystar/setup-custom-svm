@@ -8,3 +8,16 @@ serde = { version = "1.0", features = ["derive"] }
 toml = "0.7"
 walkdir = "2.4"
 serde_json = "1.0"
+
+
+[[bin]]
+name = "create-git-command"
+path = "src/bin/create_git_command.rs"
+
+[[bin]]
+name = "update_cargo_toml"
+path = "src/bin/update_cargo_toml.rs"
+
+[[bin]]
+name = "extract_packages"
+path = "src/bin/extract_packages.rs"
