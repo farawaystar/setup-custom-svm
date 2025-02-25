@@ -1,4 +1,7 @@
+# run this from agave-monitor root
+
 # STEP 1: create light clone of just Cargo.toml files
+chmod +x clone-agave.sh
 ./clone-agave.sh
 echo "connected to agave client. Light clone of just Cargo.toml files created"
 

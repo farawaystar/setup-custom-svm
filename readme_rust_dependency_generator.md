@@ -1,11 +1,12 @@
 Note: Follow [this link for instructions](https://github.com/farawaystar/agave-monitor/) to setup Github Actions
 
-# agave-monitor
+# Rust dependency generator
 
 [![Crates.io](https://img.shields.io/crates/v/agave-monitor)](https://crates.io/crates/agave-monitor)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-A Rust workspace analyzer for Solana's Agave validator client that generates a JSON dependency map of local packages.
+A dependency generator for Rust workspaces of any size. Tested on large workspaces like Solana's Agave validator client. Generates a JSON dependency map of local packages.
+
 
 ## Features
 
