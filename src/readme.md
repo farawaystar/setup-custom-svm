@@ -1,3 +1,5 @@
+Note: Follow [this link for instructions](https://github.com/farawaystar/agave-monitor/) to setup Github Actions
+
 # agave-monitor
 
 [![Crates.io](https://img.shields.io/crates/v/agave-monitor)](https://crates.io/crates/agave-monitor)

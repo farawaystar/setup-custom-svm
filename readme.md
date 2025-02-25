@@ -1,4 +1,4 @@
-follow [this link for one-click instructions](https://github.com/farawaystar/agave-monitor/tree/master/src) to clone a specific agave package
+Note: Follow [this link for one-click instructions](https://github.com/farawaystar/agave-monitor/tree/master/src) to clone a specific agave package
 
 
 # Cargo.toml Monitor
