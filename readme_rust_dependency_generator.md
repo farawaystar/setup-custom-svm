@@ -76,17 +76,10 @@ parent-folder/
 - **Empty JSON output**: Verify Agave repository contains valid workspace members
 - **Path errors**: Use absolute paths for workspace directory
 
-``` 
 refresh agave-clone
+``` 
 rm -rf ../agave-clone
 ./clone-agave.sh
-
 ```
 
-```
-if issue with giving path of agave-clone, set the below once and run
-FULL_PATH="$(cd ../agave-clone/agave && pwd)"
-cargo run --release -- "$FULL_PATH"
-cargo run --bin extract_packages "$FULL_PATH" --output custom-deps.json
-```
 
