@@ -1,9 +1,4 @@
-Note: Follow [this link for instructions](https://github.com/farawaystar/agave-monitor/) to setup Github Actions
-
 # Rust dependency generator
-
-[![Crates.io](https://img.shields.io/crates/v/agave-monitor)](https://crates.io/crates/agave-monitor)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 A dependency generator for Rust workspaces of any size. Tested on large workspaces like Solana's Agave validator client. Generates a JSON dependency map of local packages.
 
@@ -34,17 +29,14 @@ cargo build --release
 
 ### step 3: run
 ```
-cargo run --release -- ../agave-clone/agave
+cargo run --bin extract_packages ../agave-clone/agave
 ```
 output will be in output/dependencies.json
 
 ### Advanced Options (optional)
 ```
 # you can also specify custom output file
-cargo run --release -- ../agave-clone/agave --output custom-deps.json
-
-# Generate output in debug mode
-RUST_LOG=debug cargo run -- ../agave-clone/agave
+cargo run --bin extract_packages ../agave-clone/agave --output custom-deps.json
 ```
 
 ## Output Format
@@ -67,15 +59,13 @@ Output files are saved to `output/` directory. Example JSON structure:
 ```
 parent-folder/
 ├── agave-clone/
-│   └── agave/                # clone of agave with all Cargo.toml files
-└── agave-monitor/            # all build and run from here
-    ├── output/               # output JSON file
-    ├── src/
-    │   └── main.rs           # Dependency extractor logic
-    │   └── README.md         # This document
-    ├── clone-agave.sh        # Repository cloning script
-    ├── Cargo.toml            
-    └── README.md             
+│   └── agave/                     # clone of agave with all Cargo.toml files
+└── agave-monitor/                 # build and run from here
+    ├── output/                    # output JSON file
+    ├── src/bin
+    │   └── extract_packages.rs    # Dependency extractor logic
+    └── clone-agave.sh             # Repository cloning script
+           
 ```
 
 
@@ -97,20 +87,6 @@ rm -rf ../agave-clone
 if issue with giving path of agave-clone, set the below once and run
 FULL_PATH="$(cd ../agave-clone/agave && pwd)"
 cargo run --release -- "$FULL_PATH"
+cargo run --bin extract_packages "$FULL_PATH" --output custom-deps.json
 ```
 
-## Contributing
-Contributions welcome! Please follow these steps:
-1. Fork the repository
-2. Create a feature branch
-3. Submit a pull request
-4. Include tests for new functionality
-
-## License
-Apache License 2.0
-
-Copyright [2024] [farawaystar]
-
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
