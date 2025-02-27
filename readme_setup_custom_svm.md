@@ -151,6 +151,16 @@ use Option 2 if you run into errors.
 - solana-define-syscall
 - solana-derivation-path
 - solana-ed25519-program
+- solana-epoch-rewards
+- solana-epoch-schedule
+- solana-feature-set
+- solana-fee-calculator
+- solana-fee-structure
+- solana-hash
+- solana-instruction
+- solana-instructions-sysvar
+- solana-last-restart-slot
+- solana-measure
 
 ...testing ongoing for others
 ```
