@@ -13,6 +13,8 @@ A toolkit for creating customized Solana SVM environments through specfic packag
 - [Repository Structure](#repository-structure)
 - [Troubleshooting](#troubleshooting)
 - [Acknowledgments](#contributing)
+- [List of Packages that can be isolated](#List-of-Packages-that-can-be-isolated)
+
 
 ## Features
 - Lightweight cloning of Solana agave config files
@@ -121,13 +123,36 @@ use Option 2 if you run into errors.
 
 ---
 
-# List of Packages that can be isolated
+## List-of-Packages-that-can-be-isolated
 
 ```
-account-decoder
-solana-core
-solana-msg
-solana-svm
+- account-decoder
+- solana-core
+- solana-msg
+- solana-svm
+- solana-account
+- solana-account-info
+- solana-address-lookup-table-interface
+- solana-atomic-u64
+- solana-big-mod-exp
+- solana-bincode
+- solana-blake3-hasher
+- solana-bn254
+- solana-borsh
+- solana-client-traits
+- solana-clock
+- solana-cluster-type
+- solana-commitment-config
+- solana-compute-budget
+- solana-compute-budget-interface
+- solana-config-program
+- solana-cpi
+- solana-decode-error
+- solana-define-syscall
+- solana-derivation-path
+- solana-ed25519-program
+
+...testing ongoing for others
 ```
 
 ---
