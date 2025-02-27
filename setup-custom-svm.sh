@@ -1,24 +1,41 @@
 # run this from agave-monitor root
 
+# check if package was given as input
+package="$1"
+if [ "$#" -eq 0 ]; then
+    echo "Error: Package name required" >&2
+    echo "Usage: $0 <custom-package-name>"
+    exit 1
+fi
+TURQUOISE='\033[38;5;45m'
+BOLD_GREEN='\033[1;32m'
+RESET='\033[0m'
+
 # STEP 1: create light clone of just Cargo.toml files
+printf "${TURQUOISE}Step 1: create light clone${RESET}\n"
 chmod +x clone-agave.sh
 ./clone-agave.sh
 echo "connected to agave client. Light clone of just Cargo.toml files created"
 
 # STEP 2: build agave-monitor repo
+printf "${TURQUOISE}Step 2: build agave-monitor repo${RESET}\n"
 cargo build --release
 
 # STEP 3: run agave-monitor. extract dependencies
+printf "${TURQUOISE}Step 3: extract output/dependencies.json${RESET}\n"
 cargo run --bin extract_packages ../agave-clone/agave
 echo "all dependencies extracted in dependencies.json"
 
 # STEP 4: create sparse checkout git command
-cargo run --bin create-git-command solana-svm
+printf "${TURQUOISE}Step 4: create git sparse-checkout command for package: ${package} ${RESET}\n"
+cargo run --bin create-git-command "$package"
 
 # STEP 5: generate new Cargo.toml file
+printf "${TURQUOISE}Step 5: generate new Cargo.toml${RESET}\n"
 cargo run --bin update_cargo_toml  
 
 # STEP 6: Clone the repository with --filter=blob:none to avoid downloading large files
+printf "${TURQUOISE}Step 6: prepare agave clone with --filer=blob:none. Output in agave-sparse folder${RESET}\n"
 cd ..
 git clone --filter=blob:none https://github.com/anza-xyz/agave.git agave-sparse
 cd agave-sparse
@@ -27,43 +44,22 @@ cd agave-sparse
 git sparse-checkout init --cone
 
 # STEP 7: Set up sparse-checkout to include only the specified folders
+printf "${TURQUOISE}Step 7: applying git sparse-checkout${RESET}\n"
 
-git sparse-checkout set \
-    loader-v4-program \
-    programs/system \
-    compute-budget-program \
-    poseidon \
-    svm-conformance \
-    curve25519 \
-    svm \
-    type-overrides \
-    programs/loader-v4 \
-    builtins-default-costs \
-    svm-rent-collector \
-    svm-transaction \
-    programs/config \
-    programs/address-lookup-table \
-    curves/curve25519 \
-    compute-budget \
-    timings \
-    program-runtime \
-    programs/compute-budget \
-    vote-program \
-    measure \
-    metrics \
-    compute-budget-instruction \
-    system-program \
-    programs/stake \
-    log-collector \
-    programs/bpf_loader \
-    config-program \
-    address-lookup-table-program \
-    programs/vote \
-    bpf-loader-program \
-    stake-program \
+# Validate command file exists
+if [ ! -f "../agave-monitor/output/sparse_checkout_command.sh" ]; then
+    echo "Error: sparse_checkout_command.sh not found in agave-monitor/output directory" >&2
+    exit 1
+fi
 
+# Read command file and execute in current context
+sparse_command=$(<../agave-monitor/output/sparse_checkout_command.sh)
+printf "${sparse_command}"
+
+eval "$sparse_command"
 
 # STEP 8: replace Cargo.toml
+printf "\n${TURQUOISE}Step 8: replace Cargo.toml${RESET}\n"
 echo "replace Cargo.toml"
 pwd
 echo "copying new Cargo.toml"
@@ -77,24 +73,22 @@ pwd
 git remote remove origin
 
 # STEP 9: build the package
-cargo build --lib --package solana-svm
+printf "${TURQUOISE}Step 9: build agave-spare for package: ${package}${RESET}\n"
+# Get all package names in workspace
+package_list=$(cargo metadata --format-version=1 | jq -r '.packages[].name')
 
-
-# Checkout the main branch (or whichever branch you need)
-# git checkout master
-
-# Create a new independent repository
-# cd ..
-# mkdir agave-independent-s
-# cd agave-independent-s
-# git init
-
-# Pull in the changes from the sparse content
-# git remote add origin ../agave-sparse
-# git pull origin master
+# Check if package exists
+if ! grep -qxF "$package" <<< "$package_list"; then
+    echo "Error: Package '$package' not found in workspace" >&2
+    echo "Available packages:" >&2
+    echo "$package_list" | sed 's/^/- /' >&2
+    exit 1
+fi
+# Proceed with build
+cargo build --lib --package "$package"
 
 # STEP 10: Clean up: Remove the temporary agave-clone directory
+printf "${TURQUOISE}Step 10: clean up${RESET}\n"
 cd ..
 rm -rf agave-clone
-
-echo "Independent repository created in 'agave-sparse' directory."
+printf "${BOLD_GREEN}END: Successfully created independent repository in 'agave-sparse' directory for package: ${package}${RESET}\n"
