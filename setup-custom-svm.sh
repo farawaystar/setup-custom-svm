@@ -1,4 +1,4 @@
-# run this from agave-monitor root
+# run this from setup-custom-svm root
 
 # check if package was given as input
 package="$1"
@@ -17,11 +17,11 @@ chmod +x clone-agave.sh
 ./clone-agave.sh
 echo "connected to agave client. Light clone of just Cargo.toml files created"
 
-# STEP 2: build agave-monitor repo
-printf "${TURQUOISE}Step 2: build agave-monitor repo${RESET}\n"
+# STEP 2: build setup-custom-svm repo
+printf "${TURQUOISE}Step 2: build setup-custom-svm repo${RESET}\n"
 cargo build --release
 
-# STEP 3: run agave-monitor. extract dependencies
+# STEP 3: run setup-custom-svm. extract dependencies
 printf "${TURQUOISE}Step 3: extract output/dependencies.json${RESET}\n"
 cargo run --bin extract_packages ../agave-clone/agave
 echo "all dependencies extracted in dependencies.json"
@@ -47,13 +47,13 @@ git sparse-checkout init --cone
 printf "${TURQUOISE}Step 7: applying git sparse-checkout${RESET}\n"
 
 # Validate command file exists
-if [ ! -f "../agave-monitor/output/sparse_checkout_command.sh" ]; then
-    echo "Error: sparse_checkout_command.sh not found in agave-monitor/output directory" >&2
+if [ ! -f "../setup-custom-svm/output/sparse_checkout_command.sh" ]; then
+    echo "Error: sparse_checkout_command.sh not found in setup-custom-svm/output directory" >&2
     exit 1
 fi
 
 # Read command file and execute in current context
-sparse_command=$(<../agave-monitor/output/sparse_checkout_command.sh)
+sparse_command=$(<../setup-custom-svm/output/sparse_checkout_command.sh)
 printf "${sparse_command}"
 
 eval "$sparse_command"
@@ -63,10 +63,10 @@ printf "\n${TURQUOISE}Step 8: replace Cargo.toml${RESET}\n"
 echo "replace Cargo.toml"
 pwd
 echo "copying new Cargo.toml"
-cp ../agave-monitor/output/Cargo.toml .
+cp ../setup-custom-svm/output/Cargo.toml .
 
 echo "Verifying copy..."
-diff ../agave-monitor/output/Cargo.toml Cargo.toml && echo "Copy successful: Files are identical" || echo "Copy failed: Files differ"
+diff ../setup-custom-svm/output/Cargo.toml Cargo.toml && echo "Copy successful: Files are identical" || echo "Copy failed: Files differ"
 pwd
 
 # Remove the remote to detach from the original agave repo
