@@ -5,7 +5,7 @@ A dependency generator for Rust workspaces of any size. Tested on large workspac
 
 ## Features
 
-- Analyzes Cargo.toml files in a Rust workspace. In this case [Solana Agave repo](https://github.com//agave-monitor.git)
+- Analyzes Cargo.toml files in a Rust workspace. In this case [Solana Agave repo](https://github.com/farawaystar/setup-custom-svm.git)
 - Generates structured JSON output with:
   - Package paths
   - Dependencies
@@ -22,8 +22,8 @@ A dependency generator for Rust workspaces of any size. Tested on large workspac
 
 ### step 2: clone this repo and build
 ```
-git clone https://github.com//agave-monitor.git
-cd agave-monitor
+git clone https://github.com/farawaystar/setup-custom-svm.git
+cd setup-custom-svm
 cargo build --release
 ```
 
@@ -60,7 +60,7 @@ Output files are saved to `output/` directory. Example JSON structure:
 parent-folder/
 ├── agave-clone/
 │   └── agave/                     # clone of agave with all Cargo.toml files
-└── agave-monitor/                 # build and run from here
+└── setup-custom-svm/                 # build and run from here
     ├── output/                    # output JSON file
     ├── src/bin
     │   └── extract_packages.rs    # Dependency extractor logic

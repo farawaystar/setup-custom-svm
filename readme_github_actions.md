@@ -53,7 +53,7 @@ Following configs apply for cron-job.org setup
 2. Create cron-job. Give following in General and Advance tabs
 
 ```
-URL: https://api.github.com/repos/farawaystar/agave-monitor/actions/workflows/monitor-agave.yml/dispatches
+URL: https://api.github.com/repos/farawaystar/setup-custom-svm/actions/workflows/monitor-agave.yml/dispatches
 Method: POST
 Headers:
   Authorization: token YOUR_PAT
@@ -75,7 +75,7 @@ Find all workflow runs and their statuses in your repo -> Actions
 **Check Repository Access:**
 ```
 curl -H "Authorization: token YOUR_PAT" \
-  https://api.github.com/repos/farawaystar/agave-monitor
+  https://api.github.com/repos/farawaystar/setup-custom-svm 
 ```
 
 **Verify Workflow Exists:**
@@ -83,7 +83,7 @@ curl -H "Authorization: token YOUR_PAT" \
 curl -L -X GET \
 -H "Authorization: token YOUR_PAT" \
 -H "Accept: application/vnd.github.v3+json" \
-"https://api.github.com/repos/farawaystar/agave-monitor/actions/workflows"
+"https://api.github.com/repos/farawaystar/setup-custom-svm/actions/workflows"
 ```
 
 ## Troubleshooting

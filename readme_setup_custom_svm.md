@@ -1,4 +1,4 @@
-Note: Follow [this link for instructions](https://github.com/farawaystar/agave-monitor/) to setup Github Actions
+Note: Follow [this link for instructions](https://github.com/farawaystar/setup-custom-svm/) to setup Github Actions
 
 # Solana SVM Customization Toolkit
 
@@ -23,8 +23,8 @@ A toolkit for creating customized Solana SVM environments through specfic packag
 
 ## Installation
 ```bash
-git clone https://github.com/farawaystar/agave-monitor.git
-cd agave-monitor
+git clone https://github.com/farawaystar/setup-custom-svm.git
+cd setup-custom-svm
 chmod +x setup-custom-svm.sh
 ```
 
@@ -51,7 +51,7 @@ Do this only in case of errors. Open the file ```setup-custom-svm.sh``` and run 
                 ▽
 ╔═══════════════════════════════╗
 ║ 2.    Build this repo         ║
-║       (agave-monitor/)        ║
+║       (setup-custom-svm/)     ║
 ╚═══════════════╤═══════════════╝
                 │
                 ▽
@@ -110,7 +110,7 @@ Do this only in case of errors. Open the file ```setup-custom-svm.sh``` and run 
 
 ## Repository Structure
 ```
-├── agave-monitor       # SVM customiization kit. run this from here
+├── setup-custom-svm       # SVM customiization kit. run this from here
 ├── agave-clone         # temporary light clone repo of Cargo.toml files
 └── agave-sparse        # final output repo with built package 
 ```
